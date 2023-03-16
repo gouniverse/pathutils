@@ -12,9 +12,10 @@ func TestHomepath(t *testing.T) {
 		"/home/codespace",
 		"/home/runner",
 	}
-	for _, expected := range expecteds {
-		if strings.Contains(path, expected) == false {
-			t.Error("Does not contain ", expected, ", Output:", path)
-		}
+
+	expected := strings.Join(expecteds, ",")
+
+	if strings.Contains(expected, path) == false {
+		t.Error("Does not contain ", path, ", Output:", expected)
 	}
 }
